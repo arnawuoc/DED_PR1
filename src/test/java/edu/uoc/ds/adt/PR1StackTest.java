@@ -1,13 +1,8 @@
 package edu.uoc.ds.adt;
 
-import edu.uoc.ds.adt.sequential.Queue;
-import edu.uoc.ds.traversal.Iterator;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
-
-import java.util.ArrayDeque;
 
 import static org.junit.Assert.*;
 
@@ -16,8 +11,8 @@ public class PR1StackTest {
     PR1Stack pr1q;
 
     private void fillStack() {
-        for (char c = '0'; c < '9'; c++) {
-            pr1q.push(c);
+        for (int x = 0; x < pr1q.CAPACITY; x++) {
+            pr1q.push(x * x + 3 * x + 2);
         }
     }
 
@@ -39,17 +34,23 @@ public class PR1StackTest {
     @org.junit.Test
     public void stackTest() {
 
-        assertEquals(this.pr1q.CAPACITY-1, this.pr1q.getStack().size());
+        assertEquals(this.pr1q.CAPACITY, this.pr1q.getStack().size());
 
-        Assert.assertEquals(Character.valueOf('8'), pr1q.pop());
-        Assert.assertEquals(Character.valueOf('7'), pr1q.pop());
-        Assert.assertEquals(Character.valueOf('6'), pr1q.pop());
-        Assert.assertEquals(Character.valueOf('5'), pr1q.pop());
-        Assert.assertEquals(Character.valueOf('4'), pr1q.pop());
-        Assert.assertEquals(Character.valueOf('3'), pr1q.pop());
-        Assert.assertEquals(Character.valueOf('2'), pr1q.pop());
-        Assert.assertEquals(Character.valueOf('1'), pr1q.pop());
-        Assert.assertEquals(Character.valueOf('0'), pr1q.pop());
+        Assert.assertEquals(Integer.valueOf(240), pr1q.pop());
+        Assert.assertEquals(Integer.valueOf(210), pr1q.pop());
+        Assert.assertEquals(Integer.valueOf(182), pr1q.pop());
+        Assert.assertEquals(Integer.valueOf(156), pr1q.pop());
+        Assert.assertEquals(Integer.valueOf(132), pr1q.pop());
+        Assert.assertEquals(Integer.valueOf(110), pr1q.pop());
+        Assert.assertEquals(Integer.valueOf(90), pr1q.pop());
+        Assert.assertEquals(Integer.valueOf(72), pr1q.pop());
+        Assert.assertEquals(Integer.valueOf(56), pr1q.pop());
+        Assert.assertEquals(Integer.valueOf(42), pr1q.pop());
+        Assert.assertEquals(Integer.valueOf(30), pr1q.pop());
+        Assert.assertEquals(Integer.valueOf(20), pr1q.pop());
+        Assert.assertEquals(Integer.valueOf(12), pr1q.pop());
+        Assert.assertEquals(Integer.valueOf(6), pr1q.pop());
+        Assert.assertEquals(Integer.valueOf(2), pr1q.pop());
         assertEquals(0, this.pr1q.getStack().size());
     }
 
